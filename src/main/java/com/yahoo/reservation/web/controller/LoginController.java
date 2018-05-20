@@ -27,6 +27,6 @@ public class LoginController {
         System.out.println(auth.getName());
         User user = userRepository.findByUserId(auth.getName());
         model.addAttribute("loggedInUser", user);
-        return "user/mypage";
+        return "mypage";
     }
 }

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Login</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
+    <base href="/" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
+</head>
+<body>
+
+<div class="container">
+    <h1>User profile</h1>
+    <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
+        Logged in user: <b><span sec:authentication="name"></span></b> | Roles: <b><span sec:authentication="authorities"></span></b>
+        <form action="#" th:action="@{/logout}" method="post">
+            <button type="submit"  class="btn btn-danger btn-sm">
+                <span class="glyphicon glyphicon-log-out"></span>
+                Log out</button>
+        </form>
+    </div>
+
+    <br/>
+    <form th:object="${loggedInUser}" method="post">
+        <div class="row">
+            <label for="userId">userId :</label>
+            <span th:text="*{userId}" />
+        </div>
+        <div class="row">
+            <label for="name">Name:</label>
+            <span th:text="*{name}" />
+        </div>
+        <div class="row">
+            <label for="role">Role:</label>
+            <span th:text="*{roles}" />
+        </div>
+
+
+        <a th:href="|/users/*{id}/edit|">編集</a>
+        <a href="/">ホーム</a>
+
+    </form>
+    <br />
+    <!--<a href="/login" th:href="@{/login}" class="btn btn-info btn-lg">-->
+    <!--<span class="glyphicon glyphicon-chevron-left"></span> Login using  other social Providers-->
+    <!--</a>-->
+
+</div>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

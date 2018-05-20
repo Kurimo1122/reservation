@@ -10,19 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-@RequestMapping("/room")
-public class MeetingRoomController {
-    @Autowired
-    private UserRepository userRepository;
 
-    @GetMapping("/")
-    public String index(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println("hey");
-        System.out.println(auth.getName());
-        User user = userRepository.findByUserId(auth.getName());
-        model.addAttribute("loggedInUser", user);
-        return "room/index";
-    }
+@Controller
+@RequestMapping("/user")
+public class UserController {
+
+
 }
