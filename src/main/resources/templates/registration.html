@@ -31,22 +31,22 @@
 
                 <div class="form-group"
                      th:classappend="${#fields.hasErrors('name')}? 'has-error':''">
-                    <label for="firstName" class="control-label">First name</label>
-                    <input id="firstName"
+                    <label for="name" class="control-label">name</label>
+                    <input id="name"
                            class="form-control"
-                           th:field="*{firstName}"/>
+                           th:field="*{name}"/>
                     <p class="error-message"
                        th:each="error: ${#fields.errors('name')}"
                        th:text="${error}">Validation error</p>
                 </div>
                 <div class="form-group"
-                     th:classappend="${#fields.hasErrors('userId')}? 'has-error':''">
-                    <label for="email" class="control-label">E-mail</label>
-                    <input id="email"
+                     th:classappend="${#fields.hasErrors('name')}? 'has-error':''">
+                    <label for="userId" class="control-label">userId</label>
+                    <input id="userId"
                            class="form-control"
-                           th:field="*{email}"/>
+                           th:field="*{userId}"/>
                     <p class="error-message"
-                       th:each="error : ${#fields.errors('userId')}"
+                       th:each="error: ${#fields.errors('userId')}"
                        th:text="${error}">Validation error</p>
                 </div>
                 <div class="form-group"

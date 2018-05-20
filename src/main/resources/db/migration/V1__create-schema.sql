@@ -1,0 +1,11 @@
+CREATE TABLE user (
+  id INT NOT NULL PRIMARY KEY,
+  user_id VARCHAR(30),
+  name VARCHAR(30),
+  password VARCHAR(100)
+);
+
+CREATE TABLE role (
+  id INT NOT NULL PRIMARY KEY,
+  name VARCHAR(100)
+);

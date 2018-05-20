@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/registration")
+@RequestMapping("/registration") //RequestMappingは全部のControllerにつけないと、各rootが上手くhtmlをgetできない。
 public class RegistrationController {
 
     @Autowired
@@ -36,7 +36,7 @@ public class RegistrationController {
 
         User existing = userService.findByUserId(userDto.getUserId());
         if (existing != null){
-            result.rejectValue("email", null, "There is already an account registered with that email");
+            result.rejectValue("userId", null, "There is already an account registered with that id");
         }
 
         if (result.hasErrors()){
